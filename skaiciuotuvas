@@ -1,0 +1,118 @@
+package android;
+
+import java.util.Scanner;
+
+public class calculator {
+
+		public static void main(String[] args) {
+
+			Scanner input = new Scanner(System.in);
+
+			System.out.println("Give me a number: ");
+			int s1 = input.nextInt();
+
+			System.out.println("Give me another number: ");
+			int s2 = input.nextInt();
+
+			System.out.println("What operation you want to do: ");
+			String sk = input.next();
+
+			int result = 0;
+
+				// calculating the sin, cos, tg, ctg:
+				// add toRadians (nes paversti turi i laipsnius kosinusus visus)
+			
+			if (sk == "sin" || sk == "cos" || sk == "tg" || sk == "ctg") {
+
+				switch (sk) {
+				case "sin":
+					result = (int) Math.sin(s1);
+					result = (int) Math.sin(s2);
+					break;
+
+				case "cos":
+					result = (int) Math.cos(s1);
+					break;
+
+				case "tg":
+					result = (int) Math.tan(s1);
+					break;
+
+				case "ctg":
+					result = (int) ((Math.cos(s1)) / (Math.sin(s1)));
+					break;
+
+				}
+
+				System.out.println("The result is: " + result);
+			}
+			
+			// calculating +, -, *, /, % and percentage:
+			
+			else if (sk != null) {
+
+				switch (sk) {
+				case "+":
+					result = s1 + s2;
+					break;
+
+				case "-":
+					result = s1 - s2;
+					break;
+
+				case "*":
+					result = s1 * s2;
+					break;
+
+				case "/":
+					result = s1 / s2;
+					break;
+					
+				case "percentage":
+					result = 0; // pataisyti, kad butu kintamieji ir skaiciai
+					break;
+
+				case "%":
+					if (s1 <= 0) {
+						
+						result = 0;
+						System.out.println("The first number must be higher.");
+						
+					} else {
+						result = (int) (s1 % s2); // sveiko skaiciaus reikia, kad butu liekana
+						break;
+					}
+
+				}
+
+				System.out.println("Your calculator done the operations: numbers " + s1 + " and " + s2
+						+ " and the result is " + result);
+
+			}
+			
+			// calclulating Math:
+			
+			else {
+				
+				switch (sk) {
+				
+				case "kvadratu":
+					result = (int) (Math.sqrt(s1));
+					break;
+					
+				case "sakniestraukimas":
+					result = ;
+					break;
+					
+				case "laipsnis":
+					result = ;
+					break;
+					
+				}
+				
+
+			}
+
+		}
+	}
+}
