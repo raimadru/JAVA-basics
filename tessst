@@ -1,0 +1,74 @@
+package pirmas.paketas;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class pirmasT {
+
+
+	public static void main(String[] args) {
+		
+		// kad kiekviena karta nedeti, geriausia prideti prie path, arba deti kiekviena karta
+		
+		System.setProperty("webdriver.gecko.driver", "C:\\Users\\ZP18-3\\Downloads\\geckodriver.exe");
+		
+	
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://akademijait.vtvpmc.lt/opencartone/");
+	
+		
+		// click on "Wish list":
+		
+		driver.findElement(By.id("wishlist-total")).click();
+		
+		// Print number of search boxes:
+		
+		
+		// Print text of "Wish list":  
+		
+		String wishList = driver.findElement(By.id("wishlist-total")).getText();
+		System.out.println(wishList);
+		
+		// Click on "Continue":
+		
+		driver.findElement(By.cssSelector("a[class='btn btn-primary']")).click();
+		
+		
+		// ---------- need to fill in the form for submit
+		
+		
+		
+		
+		//---------
+		
+		// Select country and print selected option:
+		
+		WebElement roleDropdown = driver.findElement(By.id("country"));
+		roleDropdown.sendKeys("Lithuania");
+		roleDropdown.click();
+		
+		System.out.println("Country name is: " + roleDropdown);
+		
+		// Check and print if password field is enabled
+		
+		Boolean passw = driver.findElement(By.id("input-password")).isEnabled();
+		System.out.println("Is Password field enabled: " + passw);
+		
+		// Check and print if cart button is displayed:
+		
+		Boolean isTheElementThere = driver.findElements(By.id("cart")).size()!=0;
+		System.out.println("Is Cart button displayed: " + isTheElementThere);
+		
+		// Check if agree checkbox is selected:
+		// if checkbox selected, true. Else, false output
+		
+		WebElement press = driver.findElement(By.cssSelector("a[class='btn btn-primary']"));
+		press.click();
+		System.out.println("Is Agree checkbox selected: " + press);
+					
+		
+	}
+
+}
