@@ -1,2 +1,2 @@
 # JAVA-basics
-Simple exercises with Java
+Simple exercises with Java.
